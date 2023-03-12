@@ -94,19 +94,25 @@ const MovieSearch: NextPage<initialMoviesProps> = ({ initialMovies }) => {
 export const getServerSideProps: GetServerSideProps<{
   initialMovies: initialMoviesProps;
 }> = async (ctx) => {
-  const { query } = ctx;
-  const searchTerm = query.term || "";
+  try {
+    const { query } = ctx;
+    const searchTerm = query.term || "";
 
-  const response = await fetch(
-    `http://www.omdbapi.com/?apikey=${process.env.API_KEY}&s=${searchTerm}`
-  );
-  const data = await response.json();
+    const response = await fetch(
+      `http://www.omdbapi.com/?apikey=${process.env.API_KEY}&s=${searchTerm}`
+    );
+    const data = await response.json();
 
-  return {
-    props: {
-      initialMovies: data.Search || [],
-    },
-  };
+    return {
+      props: {
+        initialMovies: data.Search || [],
+      },
+    };
+  } catch {
+    return {
+      props: { initialMovies: [] },
+    };
+  }
 };
 
 export default MovieSearch;
