@@ -1,5 +1,6 @@
 ## Movies Search application
-### What I use:
+
+### Utils:
 
 - Next.JS
 - React
@@ -11,10 +12,10 @@
 - Next.JS Routing
 - Next.JS Data Fetching(getServerSideProps, getInitialProps)
 - Hooks
-- Fetch 
+- Fetch
 - Validation form-control
 - Environment Variables
-- Context 
+- Context
 
 ### Description
 
