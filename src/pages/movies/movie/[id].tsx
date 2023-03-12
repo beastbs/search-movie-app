@@ -1,8 +1,9 @@
+import { useState } from "react";
 import { NextPage } from "next";
 import Link from "next/link";
 import { Movie } from "@/interfaces";
 import Bookmark from "@/components/common/bookmark";
-import { useState } from "react";
+import { useSaved } from "@/components/context/savedContext";
 
 interface Props {
   movie: Movie;
@@ -10,8 +11,11 @@ interface Props {
 
 const MoviePage: NextPage<Props> = ({ movie }) => {
   const [isBookmark, setIsBookmark] = useState(false);
-  const handleSavedMovie = () => {
+  const { handleSaveMovies } = useSaved();
+
+  const handleSave = () => {
     setIsBookmark((prevState) => !prevState);
+    handleSaveMovies(movie, !isBookmark);
   };
 
   return (
@@ -22,7 +26,7 @@ const MoviePage: NextPage<Props> = ({ movie }) => {
           <div>
             <div className="d-flex justify-content-between">
               <h1 className="text-primary">{movie.Title}</h1>
-              <Bookmark isBookmark={isBookmark} onSave={handleSavedMovie} />
+              <Bookmark isBookmark={isBookmark} onSave={handleSave} />
             </div>
             <div className="mb-2">
               <span className="me-2">

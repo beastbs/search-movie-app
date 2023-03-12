@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Link from "next/link";
-import { MoviesListProps } from "@/interfaces";
+import { Movie, MoviesListProps } from "@/interfaces";
 import Pagination from "./pagination";
 import { paginate } from "@/utils/paginate";
 
@@ -21,16 +21,21 @@ const MoviesList = ({ movies }: MoviesListProps) => {
   return (
     <>
       <div className="container text-center pt-3">
-        <ul className="row gap-3">
-          {moviesCrop.map((movie) => (
+        <ul className="row gap-3 justify-content-center">
+          {moviesCrop.map((movie: Movie) => (
             <Link
               href={`/movies/movie/${movie.imdbID}`}
               key={movie.imdbID}
-              className="col bg-light pt-2 pb-2 text-decoration-none"
+              className="col-auto bg-light pt-2 pb-2 text-decoration-none"
+              style={{ width: "320px" }}
             >
               <li role="button" className="list-unstyled">
                 <h4>{movie.Title}</h4>
-                <img src={movie.Poster} alt={movie.Title} className="h-75" />
+                <img
+                  src={movie.Poster}
+                  alt={movie.Title}
+                  className="h-75 w-75"
+                />
               </li>
             </Link>
           ))}
