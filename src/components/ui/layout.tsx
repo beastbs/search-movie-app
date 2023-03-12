@@ -6,7 +6,6 @@ import { LayoutProps } from "@/interfaces";
 const Layout = ({
   children,
   title = "App",
-  background = "bg-white",
 }: LayoutProps) => {
   return (
     <>

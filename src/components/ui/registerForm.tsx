@@ -3,6 +3,7 @@ import TextField from "@/components/common/form/textField";
 import RadioField from "@/components/common/form/radioField";
 import { validator } from "@/utils/validator";
 import { validatorConfig } from "@/utils/validatorConfig";
+import {ErrorProps} from "@/interfaces";
 
 const RegisterForm = () => {
   const [data, setData] = useState({
@@ -10,7 +11,7 @@ const RegisterForm = () => {
     password: "",
     gender: "male",
   });
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<ErrorProps>({});
 
   useEffect(() => {
     validate();

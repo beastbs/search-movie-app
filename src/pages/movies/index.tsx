@@ -57,7 +57,7 @@ const MovieSearch: NextPage<initialMoviesProps> = ({ initialMovies }) => {
   };
 
   return (
-    <Layout title="Movies List" background="bg-light">
+    <Layout title="Movies List">
       <div className="d-flex justify-content-center align-items-center bg-light p-5">
         <h2 className="me-2">Search Movies:</h2>
         <div className="w-50 position-relative">

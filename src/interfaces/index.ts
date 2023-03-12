@@ -22,7 +22,6 @@ export interface MoviesListProps {
 export interface LayoutProps {
   children?: React.ReactNode;
   title: string;
-  background?: string;
 }
 
 export interface ReusableFieldProps {
@@ -60,4 +59,9 @@ export interface RadioFieldProps {
   options: OptionsProps[];
   name: string;
   onChange({ target }: React.ChangeEvent<HTMLInputElement>): void;
+}
+
+export interface ErrorProps {
+  email?: string;
+  password?: string;
 }

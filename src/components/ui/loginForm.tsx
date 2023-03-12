@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import TextField from "@/components/common/form/textField";
 import { validator } from "@/utils/validator";
 import { validatorConfig } from "@/utils/validatorConfig";
+import {ErrorProps} from "@/interfaces";
 
 const LoginForm = () => {
   const [data, setData] = useState({
     email: "",
     password: "",
   });
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<ErrorProps>({});
 
   useEffect(() => {
     validate();
