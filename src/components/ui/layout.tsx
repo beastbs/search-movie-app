@@ -3,15 +3,16 @@ import React from "react";
 import NavBar from "./navBar";
 import { LayoutProps } from "@/interfaces";
 
-const Layout = ({
-  children,
-  title = "App",
-}: LayoutProps) => {
+const Layout = ({ children, title = "App" }: LayoutProps) => {
   return (
     <>
       <Head>
         <title>{title} | Movies Search</title>
         <meta charSet="utf-8" />
+        <meta
+          http-equiv="Content-Security-Policy"
+          content="upgrade-insecure-requests"
+        />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
           name="keywords"
